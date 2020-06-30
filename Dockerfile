@@ -12,7 +12,8 @@ RUN mkdir -p /opt/opentripplanner/build
 # add build data
 # NOTE: we're trying to use dockers caching here. add items in order of least to most frequent changes
 ADD https://rgw1.netways.de/swift/v1/AUTH_66c3085bb69a42ed8991c90e5c1f453e/digitransit/osm/tuebingen-schwaben-latest.osm.pbf /opt/opentripplanner/build/
-ADD https://gtfs.mfdz.de/ulm.merged.gtfs.zip /opt/opentripplanner/build/
+ADD https://www.nvbw.de/fileadmin/nvbw/open-data/Fahrplandaten_mit_Liniennetz/ding.zip /opt/opentripplanner/build/
+ADD http://gtfs.gis-dev.flix.tech.s3-eu-west-1.amazonaws.com/gtfs_generic_eu.zip /opt/opentripplanner/build/
 ADD router-config.json /opt/opentripplanner/build/
 ADD build-config.json /opt/opentripplanner/build/
 
@@ -24,7 +25,7 @@ RUN echo "image: mfdz/opentripplanner:$OTP_VERSION" >> build/version.txt
 RUN java -Xmx10G -jar otp-shaded.jar --build build | tee build/build.log
 
 # package: graph and config into zip
-ENV ROUTER_NAME=vsh
+ENV ROUTER_NAME=ulm
 RUN sh -c 'cd /opt/opentripplanner/build/; export VERSION=$(grep "version:" version.txt | cut -d" " -f2); zip graph-$ROUTER_NAME-$VERSION.zip Graph.obj router-*.json'
 
 # ---
