@@ -13,7 +13,7 @@ RUN mkdir -p /opt/opentripplanner/build
 # NOTE: we're trying to use dockers caching here. add items in order of least to most frequent changes
 ADD https://rgw1.netways.de/swift/v1/AUTH_66c3085bb69a42ed8991c90e5c1f453e/digitransit/osm/tuebingen-schwaben-latest.osm.pbf /opt/opentripplanner/build/
 ADD https://www.nvbw.de/fileadmin/nvbw/open-data/Fahrplandaten_mit_Liniennetz/ding.zip /opt/opentripplanner/build/
-ADD http://gtfs.gis-dev.flix.tech.s3-eu-west-1.amazonaws.com/gtfs_generic_eu.zip /opt/opentripplanner/build/
+ADD http://data.ndovloket.nl/flixbus/flixbus-eu.zip /opt/opentripplanner/build/
 ADD router-config.json /opt/opentripplanner/build/
 ADD build-config.json /opt/opentripplanner/build/
 
