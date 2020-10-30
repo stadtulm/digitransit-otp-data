@@ -13,8 +13,8 @@ RUN mkdir -p /opt/opentripplanner/build/$ROUTER_NAME/
 # add build data
 # NOTE: we're trying to use dockers caching here. add items in order of least to most frequent changes
 ADD https://rgw1.netways.de/swift/v1/AUTH_66c3085bb69a42ed8991c90e5c1f453e/digitransit/osm/tuebingen-schwaben-latest.osm.pbf /opt/opentripplanner/build/$ROUTER_NAME/
-# https://www.nvbw.de/services/open-data/fahrplandaten/fahrplandaten-mit-liniennetz, DING:
-ADD https://www.nvbw.de/index.php?eID=dumpFile&t=f&f=299&token=dfd2ada86ed9b17c9367328a4332cc99ae6a0889 /opt/opentripplanner/build/$ROUTER_NAME/
+# https://www.nvbw.de/open-data/fahrplandaten/fahrplandaten-mit-liniennetz, DING:
+ADD https://www.nvbw.de/fileadmin/user_upload/service/open_data/fahrplandaten_mit_liniennetz/ding.zip /opt/opentripplanner/build/$ROUTER_NAME/
 ADD http://data.ndovloket.nl/flixbus/flixbus-eu.zip /opt/opentripplanner/build/$ROUTER_NAME/
 ADD router-config.json /opt/opentripplanner/build/$ROUTER_NAME/
 ADD build-config.json /opt/opentripplanner/build/$ROUTER_NAME/
